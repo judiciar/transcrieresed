@@ -1,0 +1,1758 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="654,738" sap2010:WorkflowViewState.IdRef="Main2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="27">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Text</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <StateMachine InitialState="{x:Reference __ReferenceID2}" sap2010:Annotation.AnnotationText="TranscriereSed - robot recunoastere vocala ce foloseste Google Cloud Speech-to-Text. Robotul transforma, de asemenea, fisierele PDF in text (OCR) cu ajutorul daemon-ului genocrd de pe masina virtuala de Linux. Activitatile sau secventele sunt comentate, de regula, numai la prima lor aparitie dupa Start." DisplayName="Main" sap:VirtualizedContainerService.HintSize="634,693" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">70,32.4</av:Point>
+        <x:Double x:Key="StateContainerWidth">600</x:Double>
+        <x:Double x:Key="StateContainerHeight">600</x:Double>
+        <av:PointCollection x:Key="ConnectorLocation">130,47.4 160,47.4 160,46.6 273,46.6</av:PointCollection>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="O tranzactie fie are succes, fie esueaza cu SystemError. In caz de succes, se trece la urmatoarea tranzactie; in caz de SystemError, se revine la Init." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,157" sap2010:WorkflowViewState.IdRef="State_3">
+      <State.Entry>
+        <TryCatch DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="438,1259" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <TryCatch.Try>
+            <Sequence DisplayName="Proceseaza tranzactia curenta" sap:VirtualizedContainerService.HintSize="242,1032" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch sap2010:Annotation.AnnotationText="Verifica casuta de email care contine mesaje noi cu fisiere audio sau PDF de procesat" DisplayName="Verifica casuta de email" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence DisplayName="Verifica email" sap:VirtualizedContainerService.HintSize="689,1726" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Init variabile" sap:VirtualizedContainerService.HintSize="647,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="scg:List(snm:MailMessage)">[messages]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="scg:List(snm:MailMessage)">[new List(of System.Net.Mail.MailMessage)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:GetIMAPMailMessages TimeoutMS="{x:Null}" Top="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP mail messages" Email="[Config(&quot;UsernameEmail&quot;)]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="647,22" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" MailFolder="Inbox" MarkAsRead="True" Messages="[messages]" OnlyUnreadMessages="True" Password="[Config(&quot;PasswordEmail&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortEmail&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPEmail&quot;)]" />
+                    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="647,1472" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[messages]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="snm:MailMessage">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,1338" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If sap2010:Annotation.AnnotationText="Robotul foloseste LINQ pentru a afla daca expeditorul se afla in lista agreata. In caz contrar, se ignora email-ul. De regula, sunt agreate adresele de email de pe just.ro si de pe adresa Config(&quot;EmailAdmin&quot;)." Condition="[{&quot;@&quot;, &quot;just.ro&quot;, Config(&quot;EmailAdmin&quot;)}.Any(Function (x) mail.From.ToString.Contains(x))]" DisplayName="Daca expeditorul nu este din lista agreata" sap:VirtualizedContainerService.HintSize="569,183" sap2010:WorkflowViewState.IdRef="If_33">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Else>
+                                <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_4" />
+                              </If.Else>
+                            </If>
+                            <If sap2010:Annotation.AnnotationText="Daca email-ul nu are atasamente, se trimite un mesaj email expeditorului, informandu-l despre eroare." Condition="[mail.Attachments.Count = 0]" DisplayName="Daca emailul nu are atasamente PDF" sap:VirtualizedContainerService.HintSize="569,123" sap2010:WorkflowViewState.IdRef="If_10">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <TryCatch DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="438,372" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <TryCatch.Try>
+                                    <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu poate fi procesata, deoarece mesajul e-mail pe care l-ati trimis nu are niciun fisier atasat.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_2" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio sau PDF" To="[mail.From.ToString.Split({&quot;&lt;&quot;,&quot;&gt;&quot;}, StringSplitOptions.None)(1)]">
+                                      <ui:SendMail.Files>
+                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                      </ui:SendMail.Files>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:SendMail>
+                                  </TryCatch.Try>
+                                  <TryCatch.Catches>
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_10">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ActivityAction x:TypeArguments="s:Exception">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                        </ActivityAction.Argument>
+                                      </ActivityAction>
+                                    </Catch>
+                                  </TryCatch.Catches>
+                                </TryCatch>
+                              </If.Then>
+                            </If>
+                            <Assign sap2010:Annotation.AnnotationText="Daca email-ul are mai multe atasamente (de ex., are atasament, pe langa fisierul audio, imaginea logo dintr-o semnatura), se prelucreaza numai fisierul cu dimensiunea cea mai mare" sap:VirtualizedContainerService.HintSize="569,147" sap2010:WorkflowViewState.IdRef="Assign_54">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[mail.Attachments.IndexOf(mail.Attachments.OrderByDescending(Function (x) x.ContentStream.Length).First)]</InArgument>
+                              </Assign.Value>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Assign>
+                            <If Condition="[Path.GetExtension(mail.Attachments(index).Name).ToLower = &quot;.pdf&quot;]" DisplayName="Salveaza diferit in functie de extensia fisierului" sap:VirtualizedContainerService.HintSize="569,325" sap2010:WorkflowViewState.IdRef="If_48">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Assign sap2010:Annotation.AnnotationText="Fisierul PDF este salvat in FolderOCR sub forma adresa email expeditor__nume fisier__3 caractere aleatorii.extensie . Denumirea este folosita ulterior pentru a extrage adresa de email a expeditorului si a ii transmite rezultatul transcrierii sau mesajele de eroare. " DisplayName="Daca este fisier PDF  - Create FileStream" sap:VirtualizedContainerService.HintSize="262,177" sap2010:WorkflowViewState.IdRef="Assign_76">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="si:FileStream">[fs]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="si:FileStream">[file.Create(Config("FolderOCR")+"\"+mail.From.ToString.Split({"&lt;","&gt;"}, StringSplitOptions.None)(1)+"__"+System.Uri.EscapeUriString(Path.GetFileNameWithoutExtension(mail.Attachments(index).Name).Replace("[", "pp").Replace("]", "pp").Replace("#", "diez")).Replace("%20", " ").Replace("__", "--")+"__"+Left(Path.GetRandomFileName(),3)+Path.GetExtension(mail.Attachments(index).Name).ToLower)]</InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                              </If.Then>
+                              <If.Else>
+                                <Assign sap2010:Annotation.AnnotationText="Fisierul audio este salvat in FolderTransformare sub forma adresa email expeditor__nume fisier__3 caractere aleatorii.extensie . Denumirea este folosita ulterior pentru a extrage adresa de email a expeditorului si a ii transmite rezultatul transcrierii sau mesajele de eroare. " DisplayName="Daca este fisier audio - Create FileStream" sap:VirtualizedContainerService.HintSize="262,177" sap2010:WorkflowViewState.IdRef="Assign_77">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="si:FileStream">[fs]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="si:FileStream">[file.Create(Config("FolderTransformare")+"\"+mail.From.ToString.Split({"&lt;","&gt;"}, StringSplitOptions.None)(1)+"__"+System.Uri.EscapeUriString(Path.GetFileNameWithoutExtension(mail.Attachments(index).Name).Replace("[", "pp").Replace("]", "pp").Replace("#", "diez")).Replace("%20", " ").Replace("__", "--")+"__"+Left(Path.GetRandomFileName(),3)+Path.GetExtension(mail.Attachments(index).Name))]</InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                              </If.Else>
+                            </If>
+                            <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="569,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_13" MethodName="CopyTo">
+                              <InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="si:Stream">[mail.Attachments(index).ContentStream]</InArgument>
+                              </InvokeMethod.TargetObject>
+                              <InArgument x:TypeArguments="si:FileStream">[fs]</InArgument>
+                            </InvokeMethod>
+                            <InvokeMethod DisplayName="Invoke method" sap:VirtualizedContainerService.HintSize="569,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_14" MethodName="Close">
+                              <InvokeMethod.TargetObject>
+                                <InArgument x:TypeArguments="si:FileStream">[fs]</InArgument>
+                              </InvokeMethod.TargetObject>
+                            </InvokeMethod>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <Sequence sap2010:Annotation.AnnotationText="Google Cloud Speech-to-Text accepta numai fisiere WAV sau FLAC. Alte formate de fisiere sunt convertite in FLAC cu ajutorul aplicatiei FFmpeg." DisplayName="Conversie audio in FLAC" sap:VirtualizedContainerService.HintSize="200,153" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Initializare" sap:VirtualizedContainerService.HintSize="412,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[new string(){}]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap2010:Annotation.AnnotationText="Robotul poate procesa si fisiere care nu sunt sosite prin email, dar sunt in acest(e) folder(e)." sap:VirtualizedContainerService.HintSize="412,117" sap2010:WorkflowViewState.IdRef="Assign_23">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(Config("FolderTransformare"), "*.*")]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each" sap:VirtualizedContainerService.HintSize="412,586" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[filesList]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,452" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If Condition="[Path.GetExtension(file).ToLower = &quot;.wav&quot;]" DisplayName="Sari conversia daca fisierul este WAV" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_42">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="426,311" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:MoveFile ContinueOnError="{x:Null}" Destination="[Config(&quot;FolderLucru&quot;)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_11" Overwrite="True" Path="[file]" />
+                              <ui:Continue sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="Continue_6" />
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot; -nostdin -y -i &quot;&quot;&quot;+file+&quot;&quot;&quot; -af &quot;&quot;highpass=f=200, lowpass=f=4000&quot;&quot;,silenceremove=stop_periods=-1:stop_duration=2:stop_threshold=-40dB,anlmdn,atempo=0.9 -ac 1 -ar 44100 &quot;&quot;&quot;+Config(&quot;FolderLucru&quot;)+&quot;\&quot;+Path.GetFileNameWithoutExtension(file)+&quot;.flac&quot;&quot;&quot;]" DisplayName="Converteste in FLAC cu aplicatia &quot;FFmpeg&quot;" FileName="[Config(&quot;CaleFFmpeg&quot;)]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+                        <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;FFmpeg&quot;" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_25" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;ffmpeg&quot;)]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sd:Process">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                              </ActivityAction.Argument>
+                              <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="WaitForExit">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                </InvokeMethod.TargetObject>
+                              </InvokeMethod>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                        <If Condition="[System.IO.File.Exists(Config(&quot;FolderLucru&quot;)+&quot;\&quot;+Path.GetFileNameWithoutExtension(file)+&quot;.flac&quot;)]" DisplayName="Verifica succesul conversiei si muta fisierul audio initial" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_23">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <If Condition="[(new System.IO.FileInfo(Config(&quot;FolderLucru&quot;)+&quot;\&quot;+Path.GetFileNameWithoutExtension(file)+&quot;.flac&quot;).Length) &lt;= 100]" DisplayName="Daca exista FLAC dar este prea mic (corupt)/daca totul e OK" sap:VirtualizedContainerService.HintSize="855,550" sap2010:WorkflowViewState.IdRef="If_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence sap:VirtualizedContainerService.HintSize="426,402" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <TryCatch DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="384,51" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <TryCatch.Try>
+                                      <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece fisierul primit nu este un fisier audio, contine erori ori nu este intr-un format audio acceptat. Retrimiteti un fisier in format MP3 si, daca nu functioneaza, contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_9" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(file).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                                        <ui:SendMail.Files>
+                                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                        </ui:SendMail.Files>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:SendMail>
+                                    </TryCatch.Try>
+                                    <TryCatch.Catches>
+                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="490,366" sap2010:WorkflowViewState.IdRef="Catch`1_11">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ActivityAction x:TypeArguments="s:Exception">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                          </ActivityAction.Argument>
+                                          <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_43">
+                                            <If.Then>
+                                              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece fisierul primit nu este un fisier audio, contine erori ori nu este intr-un format audio acceptat. Retrimiteti un fisier in format MP3 si, daca nu functioneaza, contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_16" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                                <ui:SendMail.Files>
+                                                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                                </ui:SendMail.Files>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:SendMail>
+                                            </If.Then>
+                                          </If>
+                                        </ActivityAction>
+                                      </Catch>
+                                    </TryCatch.Catches>
+                                  </TryCatch>
+                                  <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[Config(&quot;FolderLucru&quot;)+&quot;\&quot;+Path.GetFileNameWithoutExtension(file)+&quot;.flac&quot;]" />
+                                  <ui:MoveFile ContinueOnError="{x:Null}" Destination="[Config(&quot;FolderPrelucrate&quot;)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_9" Overwrite="True" Path="[file]" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <ui:MoveFile ContinueOnError="{x:Null}" Destination="[Config(&quot;FolderPrelucrate&quot;)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_12" Overwrite="True" Path="[file]" />
+                              </If.Else>
+                            </If>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Daca conversia a esuat si nu s-a creat fisier FLAC" sap:VirtualizedContainerService.HintSize="426,340" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="438,372" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <TryCatch.Try>
+                                  <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece fisierul primit nu este un fisier audio, contine erori ori nu este intr-un format audio acceptat. Retrimiteti un fisier in format MP3 si, daca nu functioneaza, contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_10" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(file).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                                    <ui:SendMail.Files>
+                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                    </ui:SendMail.Files>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendMail>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_12">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_44">
+                                        <If.Then>
+                                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece fisierul primit nu este un fisier audio, contine erori ori nu este intr-un format audio acceptat. Retrimiteti un fisier in format MP3 si, daca nu functioneaza, contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_17" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                            <ui:SendMail.Files>
+                                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                            </ui:SendMail.Files>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:SendMail>
+                                        </If.Then>
+                                      </If>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <ui:MoveFile ContinueOnError="{x:Null}" Destination="[Config(&quot;FolderPrelucrate&quot;)]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_10" Overwrite="True" Path="[file]" />
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEach>
+              </Sequence>
+              <Sequence sap2010:Annotation.AnnotationText="Fisierul FLAC sau WAV este urcat in bucket-ul din Google Cloud Storage, se verifica urcarea cu succes, apoi este lansata comanda de recunoastere cu Google Cloud Speech-to-Text." DisplayName="Upload si transforma fisierele FLAC sau WAV in text" sap:VirtualizedContainerService.HintSize="200,183" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Initializare" sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[new string(){}]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap2010:Annotation.AnnotationText="Listeaza fisierele FLAC si WAV" sap:VirtualizedContainerService.HintSize="462,91" sap2010:WorkflowViewState.IdRef="Assign_25">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(Config("FolderLucru"), "*.flac").Union(Directory.GetFiles(Config("FolderLucru"), "*.wav")).ToArray()]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each" sap:VirtualizedContainerService.HintSize="462,2348" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[filesList]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,2214" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Initializare variabile" sap:VirtualizedContainerService.HintSize="384,66" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_41">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[stringResult]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_42">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[statusCode]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="njl:JObject">[jsonResult]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_53">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[pereche]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[new Dictionary(of String, String)]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                        <If sap2010:Annotation.AnnotationText="Token-ul OAuth2 este valabil 60 minute. Daca au trecut mai mult de 50 minute de la ultima generare, se va genera un token nou cu ajutorul aplicatiei gcloud." Condition="[(DateTime.Now - Convert.ToDateTime(dataToken)).TotalMinutes &gt;= 50]" DisplayName="Genereaza token nou (daca este cazul)" sap:VirtualizedContainerService.HintSize="384,153" sap2010:WorkflowViewState.IdRef="If_39">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="336,592" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Inchidere &quot;cmd&quot;" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="ForEach`1_30" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="sd:Process">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                    </ActivityAction.Argument>
+                                    <ui:KillProcess ContinueOnError="{x:Null}" ProcessName="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_2" Process="[process]" />
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ForEach>
+                              <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot; auth application-default print-access-token &gt; &quot;&quot;&quot;+Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;&quot;&quot;]" DisplayName="Genereaza token nou" FileName="[Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gcloud.cmd&quot;]" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="StartProcess_7" />
+                              <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;gcloud&quot;" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="ForEach`1_31" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="sd:Process">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                    </ActivityAction.Argument>
+                                    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="218,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_10" MethodName="WaitForExit">
+                                      <InvokeMethod.TargetObject>
+                                        <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                      </InvokeMethod.TargetObject>
+                                    </InvokeMethod>
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ForEach>
+                              <ui:ReadTextFile Content="[token]" DisplayName="Read Text File" FileName="[Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;]" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+                              <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_65">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[dataToken]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ui:StartProcess WorkingDirectory="{x:Null}" sap2010:Annotation.AnnotationText="Fisierul este urcat in Google Cloud Storage cu ajutorul aplicatiei gsutil" Arguments="[&quot; -h &quot;&quot;Content-Type:audio/&quot;+Path.GetExtension(file).TrimStart(&quot;.&quot;c)+&quot;&quot;&quot; cp &quot;&quot;&quot;+file+&quot;&quot;&quot; gs://&quot;+Config(&quot;BucketName&quot;)+&quot;/&quot;]" DisplayName="Upload FLAC/WAV in Google Cloud" FileName="[Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gsutil.cmd&quot;]" sap:VirtualizedContainerService.HintSize="384,129" sap2010:WorkflowViewState.IdRef="StartProcess_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:StartProcess>
+                        <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;gsutil&quot;" sap:VirtualizedContainerService.HintSize="384,51" sap2010:WorkflowViewState.IdRef="ForEach`1_27" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sd:Process">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                              </ActivityAction.Argument>
+                              <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_8" MethodName="WaitForExit">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                </InvokeMethod.TargetObject>
+                              </InvokeMethod>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                        <If sap2010:Annotation.AnnotationText="Daca urcarea a durat foarte mult, este posibil sa fi expirat token-ul OAuth2. Daca a trecut prea mult timp, se genereaza un token nou cu ajutorul aplicatiei gcloud." Condition="[(DateTime.Now - Convert.ToDateTime(dataToken)).TotalMinutes &gt;= 50]" DisplayName="Genereaza token nou (daca este cazul)" sap:VirtualizedContainerService.HintSize="384,153" sap2010:WorkflowViewState.IdRef="If_40">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,560" sap2010:WorkflowViewState.IdRef="Sequence_64">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Inchidere &quot;cmd&quot;" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_32" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="sd:Process">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                    </ActivityAction.Argument>
+                                    <ui:KillProcess ContinueOnError="{x:Null}" ProcessName="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_3" Process="[process]" />
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ForEach>
+                              <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot; auth application-default print-access-token &gt; &quot;&quot;&quot;+Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;&quot;&quot;]" DisplayName="Genereaza token nou" FileName="[Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gcloud.cmd&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="StartProcess_8" />
+                              <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;gcloud&quot;" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_33" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                                <ui:ForEach.Body>
+                                  <ActivityAction x:TypeArguments="sd:Process">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                    </ActivityAction.Argument>
+                                    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="218,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_11" MethodName="WaitForExit">
+                                      <InvokeMethod.TargetObject>
+                                        <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                      </InvokeMethod.TargetObject>
+                                    </InvokeMethod>
+                                  </ActivityAction>
+                                </ui:ForEach.Body>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </ui:ForEach>
+                              <ui:ReadTextFile Content="[token]" DisplayName="Read Text File" FileName="[Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
+                              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_66">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[dataToken]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Se verifica daca urcarea in Google Cloud Storage a avut succes." BodyFormat="application/xml" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Verifica upload HTTP Request" EndPoint="https://www.googleapis.com/storage/v1/b/{BUCKET_NAME}/o/{OBJECT_NAME}" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="HttpClient_17" Method="GET" OAuth2Token="[token]" Result="[stringResult]" StatusCode="[statusCode]" TimeoutMS="6000">
+                          <ui:HttpClient.Attachments>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Attachments>
+                          <ui:HttpClient.Cookies>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Cookies>
+                          <ui:HttpClient.Headers>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Headers>
+                          <ui:HttpClient.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Parameters>
+                          <ui:HttpClient.UrlSegments>
+                            <InArgument x:TypeArguments="x:String" x:Key="BUCKET_NAME">[Config("BucketName")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="OBJECT_NAME">[Path.GetFileName(file)]</InArgument>
+                          </ui:HttpClient.UrlSegments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:HttpClient>
+                        <If sap2010:Annotation.AnnotationText="Daca urcarea a esuat, se trimite un mesaj email expeditorului." Condition="[statusCode&lt;&gt; HttpStatusCode.OK]" DisplayName="Daca upload a esuat" sap:VirtualizedContainerService.HintSize="384,108" sap2010:WorkflowViewState.IdRef="If_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="426,402" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="384,51" sap2010:WorkflowViewState.IdRef="TryCatch_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <TryCatch.Try>
+                                  <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece nu am reusit sa urc fisierul audio in Google Cloud. Contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_4" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(file).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                                    <ui:SendMail.Files>
+                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                    </ui:SendMail.Files>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendMail>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_13">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_45">
+                                        <If.Then>
+                                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece nu am reusit sa urc fisierul audio in Google Cloud. Contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_18" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                            <ui:SendMail.Files>
+                                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                            </ui:SendMail.Files>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:SendMail>
+                                        </If.Then>
+                                      </If>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <ui:MoveFile ContinueOnError="{x:Null}" Destination="[Config(&quot;FolderPrelucrate&quot;)+&quot;\&quot;+ Path.GetFileNameWithoutExtension(file)+&quot;__NEURCAT&quot;+Path.GetExtension(file)]" DisplayName="Move FLAC/WAV File" sap:VirtualizedContainerService.HintSize="384,157" sap2010:WorkflowViewState.IdRef="MoveFile_7" Overwrite="True" Path="[file]" />
+                              <ui:Continue sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="Continue_2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[statusCode]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Se lanseaza comanda de recunoastere Speech-to-Text." Body="[&quot;{&quot;&quot;config&quot;&quot;:{&quot;&quot;maxAlternatives&quot;&quot;: 1, &quot;&quot;languageCode&quot;&quot;:&quot;&quot;ro-RO&quot;&quot;, &quot;&quot;enableWordTimeOffsets&quot;&quot;: false, &quot;&quot;profanityFilter&quot;&quot;: true, &quot;&quot;enableAutomaticPunctuation&quot;&quot;: true}, &quot;&quot;audio&quot;&quot;: {&quot;&quot;uri&quot;&quot;:&quot;&quot;gs://&quot;+Config(&quot;BucketName&quot;)+&quot;/&quot;+Path.GetFileName(file)+&quot;&quot;&quot;}}&quot;]" BodyFormat="application/json" DisplayName="Speech Recognition HTTP Request" EndPoint="https://speech.googleapis.com/v1p1beta1/speech:longrunningrecognize" sap:VirtualizedContainerService.HintSize="384,64" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" OAuth2Token="[token]" Result="[stringResult]" StatusCode="[statusCode]" TimeoutMS="6000">
+                          <ui:HttpClient.Attachments>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Attachments>
+                          <ui:HttpClient.Cookies>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Cookies>
+                          <ui:HttpClient.Headers>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Headers>
+                          <ui:HttpClient.Parameters>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.Parameters>
+                          <ui:HttpClient.UrlSegments>
+                            <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                          </ui:HttpClient.UrlSegments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:HttpClient>
+                        <ui:DeserializeJson x:TypeArguments="njl:JObject" sap2010:Annotation.AnnotationText="Rezultatul comenzii anterioare se transforma (deserializeaza) din variabila sir de caractere intr-un obiect JSON JObject similar unui dictionar." DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="384,117" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonResult]" JsonString="[stringResult]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:DeserializeJson>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;URL transcriere:&quot;+Environment.NewLine+&quot;https://speech.googleapis.com/v1p1beta1/operations/&quot;+jsonResult(&quot;name&quot;).ToString+&quot;/&quot;]" />
+                        <ui:MoveFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Se muta fisierul FLAC sau WAV in alt folder, pentru a nu fi prelucrat inca o data." Destination="[Config(&quot;FolderPrelucrate&quot;)+&quot;\&quot;+ Path.GetFileNameWithoutExtension(file)+&quot;__&quot;+jsonResult(&quot;name&quot;).ToString+Path.GetExtension(file)]" DisplayName="Move FLAC/WAV File" sap:VirtualizedContainerService.HintSize="384,199" sap2010:WorkflowViewState.IdRef="MoveFile_5" Overwrite="True" Path="[file]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:MoveFile>
+                        <If sap2010:Annotation.AnnotationText="Se trimite un mesaj email expeditorului, daca lansarea recunoasterii a esuat." Condition="[statusCode&lt;&gt; HttpStatusCode.OK]" DisplayName="Daca comanda Speech Recognition a esuat" sap:VirtualizedContainerService.HintSize="384,108" sap2010:WorkflowViewState.IdRef="If_24">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence sap:VirtualizedContainerService.HintSize="242,205" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <TryCatch DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="524,528" sap2010:WorkflowViewState.IdRef="TryCatch_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <TryCatch.Try>
+                                  <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece nu am reusit sa lansez comanda de transcriere audio din Google Speech-to-Text API. Contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_6" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(file).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                                    <ui:SendMail.Files>
+                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                    </ui:SendMail.Files>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendMail>
+                                </TryCatch.Try>
+                                <TryCatch.Catches>
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="490,366" sap2010:WorkflowViewState.IdRef="Catch`1_14">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ActivityAction x:TypeArguments="s:Exception">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                      </ActivityAction.Argument>
+                                      <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_46">
+                                        <If.Then>
+                                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Solicitarea dumneavoastra nu a putut fi procesata, deoarece nu am reusit sa lansez comanda de transcriere audio din Google Speech-to-Text API. Contactati Compartimentul IT.&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_19" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Eroare - transcrierea fisierului audio" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                            <ui:SendMail.Files>
+                                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                                            </ui:SendMail.Files>
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </ui:SendMail>
+                                        </If.Then>
+                                      </If>
+                                    </ActivityAction>
+                                  </Catch>
+                                </TryCatch.Catches>
+                              </TryCatch>
+                              <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_3" />
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                        <Assign sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="Assign_26">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[pereche("OPERATION_NAME")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[jsonResult("name").ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[pereche("CaleFisier")]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[Config("FolderPrelucrate")+"\"+ Path.GetFileNameWithoutExtension(file)+"__"+jsonResult("name").ToString+Path.GetExtension(file)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <AddToCollection x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:Annotation.AnnotationText="Fiecare pereche {OPERATION_NAME - CaleFisier} se adauga intr-o lista cu operatii in curs de desfasurare, care va fi verificata ulterior, pentru a se vedea care din operatii sunt finalizate." Collection="[ListaOperatii]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,154" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[pereche]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </AddToCollection>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEach>
+              </Sequence>
+              <ui:ForEach x:TypeArguments="scg:Dictionary(x:String, x:String)" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Pentru fiecare operatie (pereche) din lista, se verifica daca este finalizata, iar, in caz afirmativ, se salveaza rezultatul si se trimite expeditorului. Lista este prelucrata in sens invers, pentru ca altfel nu se pot sterge elemente dintr-o lista in timp ce este iterata." DisplayName="Obtine rezultatele recunoasterii" sap:VirtualizedContainerService.HintSize="200,213" sap2010:WorkflowViewState.IdRef="ForEach`1_24" Values="[ListaOperatii.Cast(of Dictionary (of String,String)).Reverse()]">
+                <ui:ForEach.Body>
+                  <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:String)">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="pereche" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,1616" sap2010:WorkflowViewState.IdRef="Sequence_61">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Sequence DisplayName="Initializare variabile" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_59">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[stringResult]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_60">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[rezultat]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">
+                              <Literal x:TypeArguments="x:String" Value="" />
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_61">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[statusCode]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="242,60" sap2010:WorkflowViewState.IdRef="Assign_62">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="njl:JObject">[jsonResult]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                      <If Condition="[(DateTime.Now - Convert.ToDateTime(dataToken)).TotalMinutes &gt;= 50]" DisplayName="Genereaza token nou (daca este cazul)" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_41">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="336,592" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Inchidere &quot;cmd&quot;" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="ForEach`1_34" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                              <ui:ForEach.Body>
+                                <ActivityAction x:TypeArguments="sd:Process">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                  </ActivityAction.Argument>
+                                  <ui:KillProcess ContinueOnError="{x:Null}" ProcessName="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_4" Process="[process]" />
+                                </ActivityAction>
+                              </ui:ForEach.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:ForEach>
+                            <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot; auth application-default print-access-token &gt; &quot;&quot;&quot;+Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;&quot;&quot;]" DisplayName="Genereaza token nou" FileName="[Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gcloud.cmd&quot;]" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="StartProcess_9" />
+                            <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;gcloud&quot;" sap:VirtualizedContainerService.HintSize="314,51" sap2010:WorkflowViewState.IdRef="ForEach`1_35" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                              <ui:ForEach.Body>
+                                <ActivityAction x:TypeArguments="sd:Process">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                                  </ActivityAction.Argument>
+                                  <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="218,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_12" MethodName="WaitForExit">
+                                    <InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                    </InvokeMethod.TargetObject>
+                                  </InvokeMethod>
+                                </ActivityAction>
+                              </ui:ForEach.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:ForEach>
+                            <ui:ReadTextFile Content="[token]" DisplayName="Read Text File" FileName="[Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;]" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
+                            <Assign sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="Assign_67">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[dataToken]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                      <ui:HttpClient Body="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Verifica rezultatul recunoasterii." BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="Get Result HTTP Request" EndPoint="https://speech.googleapis.com/v1p1beta1/operations/{OPERATION_NAME}/" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="HttpClient_18" Method="GET" OAuth2Token="[token]" Result="[stringResult]" StatusCode="[statusCode]" TimeoutMS="6000">
+                        <ui:HttpClient.Attachments>
+                          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                        </ui:HttpClient.Attachments>
+                        <ui:HttpClient.Cookies>
+                          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                        </ui:HttpClient.Cookies>
+                        <ui:HttpClient.Headers>
+                          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                        </ui:HttpClient.Headers>
+                        <ui:HttpClient.Parameters>
+                          <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+                        </ui:HttpClient.Parameters>
+                        <ui:HttpClient.UrlSegments>
+                          <InArgument x:TypeArguments="x:String" x:Key="OPERATION_NAME">[pereche("OPERATION_NAME")]</InArgument>
+                        </ui:HttpClient.UrlSegments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:HttpClient>
+                      <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[jsonResult]" JsonString="[stringResult]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:DeserializeJson>
+                      <If sap2010:Annotation.AnnotationText="Sari peste operatie, daca nu este inca finalizata." Condition="[IsNothing(jsonResult(&quot;done&quot;))]" DisplayName="Daca recunoasterea nu e gata" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="If_38">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_5" />
+                        </If.Then>
+                      </If>
+                      <ui:ForEach x:TypeArguments="njl:JObject" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Adauga toate bucatile de recunoastere intr-o singura variabila sir de caractere." DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,236" sap2010:WorkflowViewState.IdRef="ForEach`1_23" Values="[jsonResult(&quot;response&quot;)(&quot;results&quot;)]">
+                        <ui:ForEach.Body>
+                          <ActivityAction x:TypeArguments="njl:JObject">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="njl:JObject" Name="result" />
+                            </ActivityAction.Argument>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_63">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[rezultat]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[rezultat+result("alternatives")(0)("transcript").ToString+Environment.NewLine]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </ActivityAction>
+                        </ui:ForEach.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ForEach>
+                      <Assign sap2010:Annotation.AnnotationText="Filtreaza cuvintele obscene din rezultatul recunoasterii." DisplayName="Filtru cuvinte obscene" sap:VirtualizedContainerService.HintSize="334,102" sap2010:WorkflowViewState.IdRef="Assign_68">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[rezultat]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[rezultat.Replace("pula","**").Replace("pulei","**").Replace("pizd","**").Replace("muie","**").Replace("muia","**").Replace("muist","**").Replace("târf","**").Replace("coaie","**").Replace("curv","**").Replace("fut","**")]</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[rezultat]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </WriteLine>
+                      <ui:WriteTextFile sap2010:Annotation.AnnotationText="Salveaza rezultatul recunoasterii intr-un fisier TXT cu denumirea corespunzatoare, codat UTF-8." DisplayName="Write Text File" Encoding="utf-8" FileName="[Config(&quot;FolderTranscrieri&quot;)+&quot;\&quot;+Path.GetFileNameWithoutExtension(pereche(&quot;CaleFisier&quot;))+&quot;.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,174" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[rezultat]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:WriteTextFile>
+                      <TryCatch sap2010:Annotation.AnnotationText="Trimite fisierul TXT cu rezultatul recunoasterii prin email expeditorului si destinatarului copiei sau, in lipsa, EmailAdmin. " DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="334,138" sap2010:WorkflowViewState.IdRef="TryCatch_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <TryCatch.Try>
+                          <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Va transmit in atasament rezultatul continand transcrierea fisierului audio, solicitata de dumneavoastra.&quot;+Environment.NewLine+&quot;Google Cloud Speech-to-Text a avut nevoie de &quot;+Convert.ToString((Convert.ToDateTime(JsonResult(&quot;metadata&quot;)(&quot;lastUpdateTime&quot;).ToString) - Convert.ToDateTime(JsonResult(&quot;metadata&quot;)(&quot;startTime&quot;).ToString)).TotalSeconds)+&quot; secunde pentru a efectua operatia de transcriere.&quot;+Environment.NewLine+&quot;Fisierul text rezultat are codarea Unicode (UTF-8).&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_8" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Transcrierea fisierului audio" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(pereche(&quot;CaleFisier&quot;)).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                            <ui:SendMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[Config("FolderTranscrieri")+"\"+Path.GetFileNameWithoutExtension(pereche("CaleFisier"))+".txt"]</InArgument>
+                              </scg:List>
+                            </ui:SendMail.Files>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:SendMail>
+                        </TryCatch.Try>
+                        <TryCatch.Catches>
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_15">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ActivityAction x:TypeArguments="s:Exception">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                              </ActivityAction.Argument>
+                              <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_47">
+                                <If.Then>
+                                  <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Va transmit in atasament rezultatul continand transcrierea fisierului audio, solicitata de dumneavoastra.&quot;+Environment.NewLine+&quot;Google Cloud Speech-to-Text a avut nevoie de &quot;+Convert.ToString((Convert.ToDateTime(JsonResult(&quot;metadata&quot;)(&quot;lastUpdateTime&quot;).ToString) - Convert.ToDateTime(JsonResult(&quot;metadata&quot;)(&quot;startTime&quot;).ToString)).TotalSeconds)+&quot; secunde pentru a efectua operatia de transcriere.&quot;+Environment.NewLine+&quot;Fisierul text rezultat are codarea Unicode (UTF-8).&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_20" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Transcrierea fisierului audio" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                    <ui:SendMail.Files>
+                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                        <InArgument x:TypeArguments="x:String">[Config("FolderTranscrieri")+"\"+Path.GetFileNameWithoutExtension(pereche("CaleFisier"))+".txt"]</InArgument>
+                                      </scg:List>
+                                    </ui:SendMail.Files>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:SendMail>
+                                </If.Then>
+                              </If>
+                            </ActivityAction>
+                          </Catch>
+                        </TryCatch.Catches>
+                      </TryCatch>
+                      <RemoveFromCollection x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:Annotation.AnnotationText="Sterge operatia (perechea) finalizata din lista cu operatii in curs de desfasurare." Collection="[ListaOperatii]" DisplayName="Remove From Collection" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="RemoveFromCollection`1_2" Item="[pereche]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </RemoveFromCollection>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEach.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ForEach>
+              <Sequence sap2010:Annotation.AnnotationText="Se trimite prin e-mail fisierul text cu rezultatul recunoasterii OCR" DisplayName="Obtine rezultatele OCR" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Initializare" sap:VirtualizedContainerService.HintSize="462,60" sap2010:WorkflowViewState.IdRef="Assign_70">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[new string(){}]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <Assign sap2010:Annotation.AnnotationText="Listeaza fisierele PDF" sap:VirtualizedContainerService.HintSize="462,91" sap2010:WorkflowViewState.IdRef="Assign_71">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:String[]">[filesList]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(Config("FolderOCR"), "*.txt")]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each" sap:VirtualizedContainerService.HintSize="462,704" sap2010:WorkflowViewState.IdRef="ForEach`1_36" Values="[filesList]">
+                  <ui:ForEach.Body>
+                    <ActivityAction x:TypeArguments="x:String">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:String" Name="file" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="426,570" sap2010:WorkflowViewState.IdRef="Sequence_70">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <TryCatch sap2010:Annotation.AnnotationText="Trimite fisierul TXT cu rezultatul recunoasterii prin email expeditorului si destinatarului copiei sau, in lipsa, EmailAdmin. " DisplayName="Send SMTP Mail Message - Try Catch" sap:VirtualizedContainerService.HintSize="524,570" sap2010:WorkflowViewState.IdRef="TryCatch_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch.Try>
+                            <ui:SendMail Cc="{x:Null}" MailMessage="{x:Null}" Bcc="[Config(&quot;DestCopieTranscriere&quot;)]" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Va transmit in atasament rezultatul continand transcrierea fisierului PDF, solicitata de dumneavoastra.&quot;+Environment.NewLine+&quot;Fisierul text rezultat are codarea Unicode (UTF-8).&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_21" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Transcrierea fisierului PDF" TimeoutMS="3000" To="[Path.GetFileNameWithoutExtension(file).Split({&quot;__&quot;}, StringSplitOptions.None)(0)]">
+                              <ui:SendMail.Files>
+                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                  <InArgument x:TypeArguments="x:String">[file]</InArgument>
+                                </scg:List>
+                              </ui:SendMail.Files>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:SendMail>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="490,366" sap2010:WorkflowViewState.IdRef="Catch`1_16">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                                <If Condition="[Config(&quot;EmailAdmin&quot;).Trim &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="484,293" sap2010:WorkflowViewState.IdRef="If_49">
+                                  <If.Then>
+                                    <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Body="[&quot;Stimata Doamna/Stimate Domn,&quot;+Environment.NewLine+Environment.NewLine+&quot;Va transmit in atasament rezultatul continand transcrierea fisierului PDF, solicitata de dumneavoastra.&quot;+Environment.NewLine+&quot;Fisierul text rezultat are codarea Unicode (UTF-8).&quot;+Environment.NewLine+Environment.NewLine+&quot;Robot Transcrieri&quot;+Environment.NewLine+&quot;Dezvoltat de Curtea de Apel Galati&quot;]" DisplayName="Send SMTP Mail Message" Email="[Config(&quot;UsernameSmtp&quot;)]" EnableSSL="True" From="[Config(&quot;UsernameSmtp&quot;)]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_22" IsBodyHtml="False" Name="Robot Transcrieri" Password="[Config(&quot;PasswordSmtp&quot;)]" Port="[Convert.ToInt32(Config(&quot;PortSmtp&quot;).Trim)]" SecureConnection="None" Server="[Config(&quot;IPsmtp&quot;)]" Subject="Transcrierea fisierului PDF" TimeoutMS="3000" To="[Config(&quot;EmailAdmin&quot;)]">
+                                      <ui:SendMail.Files>
+                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                          <InArgument x:TypeArguments="x:String">[file]</InArgument>
+                                        </scg:List>
+                                      </ui:SendMail.Files>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:SendMail>
+                                  </If.Then>
+                                </If>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="384,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;Procesat OCR: &quot;+Path.GetFileNameWithoutExtension(file)+&quot;.pdf&quot;]" />
+                        <ui:MoveFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Se muta fisierul TXT in alt folder, pentru a nu fi prelucrat inca o data." Destination="[Config(&quot;FolderOCRprelucrate&quot;)+&quot;\&quot;+ Path.GetFileName(file)]" DisplayName="Move TXT File" sap:VirtualizedContainerService.HintSize="384,199" sap2010:WorkflowViewState.IdRef="MoveFile_13" Overwrite="True" Path="[file]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:MoveFile>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEach.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:ForEach>
+              </Sequence>
+            </Sequence>
+          </TryCatch.Try>
+          <TryCatch.Catches>
+            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ActivityAction x:TypeArguments="s:Exception">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                </ActivityAction.Argument>
+                <Assign DisplayName="Atribuie exceptia la SystemError" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="s:Exception">[SystemError]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </ActivityAction>
+            </Catch>
+          </TryCatch.Catches>
+        </TryCatch>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">284.5,209</av:Point>
+          <av:Size x:Key="ShapeSize">231,157</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Double x:Key="StateContainerWidth">197</x:Double>
+          <x:Double x:Key="StateContainerHeight">34</x:Double>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <State.Transitions>
+        <Transition sap2010:Annotation.AnnotationText="In caz de eroare, reia Init dupa o pauza." DisplayName="SystemError" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="Transition_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">515.5,256.1 545.5,256.1 545.5,82.65 527,82.65</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">20</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">40</x:Int32>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.To>
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Citeste fisierul cu setari, initializeaza aplicatiile." DisplayName="Init" sap:VirtualizedContainerService.HintSize="254,103" sap2010:WorkflowViewState.IdRef="State_2">
+              <State.Entry>
+                <TryCatch DisplayName="Catch intialization exceptions" sap:VirtualizedContainerService.HintSize="438,1872" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch.Try>
+                    <Sequence DisplayName="Init State" sap:VirtualizedContainerService.HintSize="376,1645" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="CaleSetariJson" />
+                        <Variable x:TypeArguments="x:String" Name="SetariJsonString" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Initialize SystemError" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:Exception">[SystemError]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:Exception">[Nothing]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <If Condition="[System.IO.File.Exists(&quot;setari.json&quot;)]" DisplayName="Verifica existenta setari.json" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="If_9">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[CaleSetariJson]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">setari.json</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                        <If.Else>
+                          <ui:SelectFile DisplayName="Select file Setari.json" Filter="setari.json|*.json" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[CaleSetariJson]" />
+                        </If.Else>
+                      </If>
+                      <ui:ReadTextFile sap2010:Annotation.AnnotationText="Citeste fisierul json cu setari si incarca continutul intr-o variabila sir de caractere (string)." Content="[SetariJsonString]" DisplayName="Read Text File" FileName="[CaleSetariJson]" sap:VirtualizedContainerService.HintSize="334,174" sap2010:WorkflowViewState.IdRef="ReadTextFile_5">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:ReadTextFile>
+                      <ui:DeserializeJson x:TypeArguments="scg:Dictionary(x:String, x:String)" sap2010:Annotation.AnnotationText="Transforma variabila sir de caractere (string) intr-un dictionar de setari denumit Config." DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="334,102" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_11" JsonObject="[Config]" JsonString="[SetariJsonString]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:DeserializeJson>
+                      <ui:GetEnvironmentVariable sap2010:Annotation.AnnotationText="Variabila de environment Windows GOOGLE_APPLICATION_CREDENTIALS contine calea catre fisierul json cu cheia de acces in Google Cloud, in baza careia se va genera la fiecare 60 minute un cod de acces (token) OAuth2" DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="334,146" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="GOOGLE_APPLICATION_CREDENTIALS" VariableValue="[dataToken]">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:GetEnvironmentVariable>
+                      <If sap2010:Annotation.AnnotationText="Verifica existenta aplicatiei gcloud, care initializeaza token-ul OAuth2 ce permite accesul in Google Cloud." Condition="[System.IO.File.Exists(Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gcloud.cmd&quot;)]" DisplayName="Verifica existenta &quot;gcloud.cmd&quot;" sap:VirtualizedContainerService.HintSize="334,123" sap2010:WorkflowViewState.IdRef="If_34">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Else>
+                          <Throw Exception="[new Exception(&quot;Nu am gasit fisierul gcloud.cmd&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                        </If.Else>
+                      </If>
+                      <If sap2010:Annotation.AnnotationText="Verifica existenta aplicatiei gsutil, care urca in Google Cloud Storage fisierele audio convertite." Condition="[System.IO.File.Exists(Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gsutil.cmd&quot;)]" DisplayName="Verifica existenta &quot;gsutil.cmd&quot;" sap:VirtualizedContainerService.HintSize="334,123" sap2010:WorkflowViewState.IdRef="If_35">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Else>
+                          <Throw Exception="[new Exception(&quot;Nu am gasit fisierul gsutil.cmd&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                        </If.Else>
+                      </If>
+                      <If sap2010:Annotation.AnnotationText="Verifica existenta fisierului json care contine cheia de acces in Google Cloud." Condition="[System.IO.File.Exists(dataToken)]" DisplayName="Verifica existenta &quot;gcloudauthkey.json&quot;" sap:VirtualizedContainerService.HintSize="334,108" sap2010:WorkflowViewState.IdRef="If_36">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Else>
+                          <Throw Exception="[new Exception(&quot;Nu am gasit fisierul gcloudauthkey.json in calea indicata de variabila de environment GOOGLE_APPLICATION_CREDENTIALS&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                        </If.Else>
+                      </If>
+                      <If sap2010:Annotation.AnnotationText="Verifica existenta aplicatiei FFmpeg, care transforma fisierele audio in formatul FLAC acceptat de Google Cloud Speech-to-Text." Condition="[System.IO.File.Exists(Config(&quot;CaleFFmpeg&quot;))]" DisplayName="Verifica existenta &quot;ffmpeg.exe&quot;" sap:VirtualizedContainerService.HintSize="334,138" sap2010:WorkflowViewState.IdRef="If_37">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <If.Else>
+                          <Throw Exception="[new Exception(&quot;Nu am gasit fisierul ffmpeg.exe&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                        </If.Else>
+                      </If>
+                      <Sequence sap2010:Annotation.AnnotationText="Din fisierul json cu cheia de acces se genereaza un token OAuth2 valabil timp de 60 minute, care este folosit pentru acces in Google Cloud." DisplayName="Genereaza token nou" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="Sequence_62">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Inchidere &quot;cmd&quot;" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sd:Process">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                              </ActivityAction.Argument>
+                              <ui:KillProcess ContinueOnError="{x:Null}" ProcessName="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" Process="[process]" />
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                        <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot; auth application-default print-access-token &gt; &quot;&quot;&quot;+Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;&quot;&quot;]" DisplayName="Genereaza token nou" FileName="[Config(&quot;CaleGoogleSDKbin&quot;)+&quot;\gcloud.cmd&quot;]" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="StartProcess_6" />
+                        <ui:ForEach x:TypeArguments="sd:Process" CurrentIndex="{x:Null}" DisplayName="Asteapta inchidere &quot;gcloud&quot;" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="ForEach`1_29" Values="[System.Diagnostics.Process.GetProcessesByName(&quot;cmd&quot;)]">
+                          <ui:ForEach.Body>
+                            <ActivityAction x:TypeArguments="sd:Process">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:Process" Name="process" />
+                              </ActivityAction.Argument>
+                              <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="218,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_9" MethodName="WaitForExit">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="sd:Process">[process]</InArgument>
+                                </InvokeMethod.TargetObject>
+                              </InvokeMethod>
+                            </ActivityAction>
+                          </ui:ForEach.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEach>
+                        <ui:ReadTextFile Content="[token]" DisplayName="Read Text File" FileName="[Config(&quot;FolderLucru&quot;)+&quot;\token.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_64">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[dataToken]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </Sequence>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Assign DisplayName="Atribuie exceptia la SystemError" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:Exception">[SystemError]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </ActivityAction>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
+              </State.Entry>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">273,26</av:Point>
+                  <av:Size x:Key="ShapeSize">254,103</av:Size>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Double x:Key="StateContainerWidth">220</x:Double>
+                  <x:Double x:Key="StateContainerHeight">25</x:Double>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <State.Transitions>
+                <Transition DisplayName="SystemError" sap:VirtualizedContainerService.HintSize="450,507" sap2010:WorkflowViewState.IdRef="Transition_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">361.9,129 361.9,159 137.8,159 137.8,218.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">27</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="Afiseaza un mesaj de eroare si inchide programul." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,119" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                      <State.Entry>
+                        <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Eroare Robot" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Robot UiPath - Eroare in procedura de Initializare.&quot;+Environment.NewLine+&quot;Posibile cauze:&quot;+Environment.NewLine+&quot;- nu am gasit fisierul setari.json&quot;+Environment.NewLine+&quot;- nu am gasit unul din fisierele gcloud.cmd si gsutil.cmd in calea catre Google Cloud SDK subfolder-ul bin, mentionata in setari.json&quot;+Environment.NewLine+&quot;- nu am gasit aplicatia de conversie audio ffmpeg.exe in calea mentionata in setari.json&quot;+Environment.NewLine+&quot;- Variabila de environment GOOGLE_APPLICATION_CREDENTIALS nu exista sau nu face referire la un fisier gcloudauthkey.json existent&quot;+Environment.NewLine+Environment.NewLine+&quot;Exception message: &quot;+SystemError.Message+&quot; at Source: &quot;+SystemError.Source]" TopMost="True" />
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">73,218.5</av:Point>
+                          <av:Size x:Key="ShapeSize">144,119</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          <x:Double x:Key="StateContainerWidth">110</x:Double>
+                          <x:Double x:Key="StateContainerHeight">26</x:Double>
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </State>
+                  </Transition.To>
+                  <Transition.Action>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Fatal" Message="[&quot;System error at initialization: &quot; + SystemError.Message + &quot; at Source: &quot; + SystemError.Source]" />
+                  </Transition.Action>
+                  <Transition.Condition>
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError isNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                  </Transition.Condition>
+                </Transition>
+                <Transition DisplayName="Success" sap:VirtualizedContainerService.HintSize="450,507" sap2010:WorkflowViewState.IdRef="Transition_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                      <av:PointCollection x:Key="ConnectorLocation">400,129 400,209</av:PointCollection>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.To>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </Transition.To>
+                  <Transition.Action>
+                    <ui:Comment sap:VirtualizedContainerService.HintSize="334,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="In caz de succes, treci la Process Transaction." />
+                  </Transition.Action>
+                  <Transition.Condition>
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
+                  </Transition.Condition>
+                </Transition>
+              </State.Transitions>
+            </State>
+          </Transition.To>
+          <Transition.Action>
+            <Delay sap2010:Annotation.AnnotationText="Fa o pauza inainte de a relua Init." Duration="00:00:15" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="Delay_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Delay>
+          </Transition.Action>
+          <Transition.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
+          </Transition.Condition>
+        </Transition>
+        <Transition sap2010:Annotation.AnnotationText="In caz de succes,mergi la urmatoarea tranzactie, dupa o pauza." DisplayName="Success" sap:VirtualizedContainerService.HintSize="450,538" sap2010:WorkflowViewState.IdRef="Transition_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:PointCollection x:Key="ConnectorLocation">400,366 400,385.35 254.5,385.35 254.5,295.35 284.5,295.35</av:PointCollection>
+              <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+              <x:Int32 x:Key="DestConnectionPointIndex">41</x:Int32>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Transition.To>
+            <x:Reference>__ReferenceID0</x:Reference>
+          </Transition.To>
+          <Transition.Action>
+            <Delay sap2010:Annotation.AnnotationText="Reia procedura dupa o pauza." Duration="00:00:30" sap:VirtualizedContainerService.HintSize="200,53" sap2010:WorkflowViewState.IdRef="Delay_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </Delay>
+          </Transition.Action>
+          <Transition.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemError Is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
+          </Transition.Condition>
+        </Transition>
+      </State.Transitions>
+      <State.Variables>
+        <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="messages" />
+        <Variable x:TypeArguments="si:FileStream" Name="fs" />
+        <Variable x:TypeArguments="njl:JObject" Name="jsonResult" />
+        <Variable x:TypeArguments="x:String" Name="stringResult" />
+        <Variable x:TypeArguments="x:Int32" Name="statusCode" />
+      </State.Variables>
+    </State>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <StateMachine.Variables>
+      <Variable x:TypeArguments="s:Exception" Name="SystemError" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="Config" />
+      <Variable x:TypeArguments="s:String[]" Name="filesList" />
+      <Variable x:TypeArguments="x:String" Name="token" />
+      <Variable x:TypeArguments="x:String" Name="rezultat" />
+      <Variable x:TypeArguments="scg:List(scg:Dictionary(x:String, x:String))" Default="[new List(of Dictionary(of String, String))]" Name="ListaOperatii" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="pereche" />
+      <Variable x:TypeArguments="x:String" Name="dataToken" />
+      <Variable x:TypeArguments="x:Int32" Name="index" />
+    </StateMachine.Variables>
+  </StateMachine>
+</Activity>
